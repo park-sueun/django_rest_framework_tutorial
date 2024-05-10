@@ -7,5 +7,5 @@ router.register("posts", views.PostViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('public/', views.PublicPostListViewSet.as_view()),
+    path('public/', views.PublicPostListView.as_view(), name='PublicPostListView'),
 ]
