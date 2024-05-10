@@ -14,7 +14,7 @@ class PostSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Post
-        fields = ("pk", "username", "message", "updated")
+        fields = ("pk", "username", "message", "updated", "is_public")
     
     # 외래키로 지정된 필드의 값을 가져오는 방법 2
     # author = AuthorSerializer()
