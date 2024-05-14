@@ -63,7 +63,7 @@ from .serializers import PostSerializer
 class PostViewSet(ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [IsAuthenticated] # permission이 적용됨
+    # permission_classes = [IsAuthenticated] # permission이 적용됨
     
     def perform_create(self, serializer):
         # FIXME: 유저 인증이 되어 있다는 가정하에 auth를 지정함
