@@ -70,8 +70,10 @@ class PostViewSet(ModelViewSet):
     
     # permission_classes = [IsAuthenticated] # permission이 적용됨
     
-    filter_backends = [SearchFilter]
+    filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ['message']     # ?search= -> QuerySet 조건 절에 추가할 필드 지정. 모델 필드 중 문자열 필드만을 지정
+    ordering_fields = ['-updated']        # ?ordering -> 정렬을 허용할 필드의 화이트 리스트. 미지정 시에 serializer_class에 지정된 필드들
+    ordering = ['id']               # 디폴트 정렬을 지정
     
     def perform_create(self, serializer):
         # FIXME: 유저 인증이 되어 있다는 가정하에 auth를 지정함
